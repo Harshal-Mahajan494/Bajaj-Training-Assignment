@@ -1,0 +1,226 @@
+/* 🌟 Container */
+.container {
+  margin-top: 40px;
+  margin-bottom: 60px;
+  max-width: 1000px;
+}
+
+/* 🌟 Title */
+h2 {
+  font-weight: 700;
+  color: #0d6efd;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 🌟 Table */
+.table {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.table th {
+  background-color: #f8f9fa;
+  color: #495057;
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table td {
+  vertical-align: middle;
+  text-align: center;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+/* Product image & name */
+.table td:first-child {
+  text-align: left;
+}
+
+.table img {
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  transition: transform 0.3s;
+}
+
+.table img:hover {
+  transform: scale(1.05);
+}
+
+/* 🌟 Input Quantity */
+input[type="number"] {
+  width: 70px;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  transition: all 0.2s ease-in-out;
+}
+
+input[type="number"]:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 3px rgba(13, 110, 253, 0.3);
+  outline: none;
+}
+
+/* 🌟 Buttons */
+.btn {
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #bb2d3b;
+}
+
+.btn-outline-danger {
+  border-radius: 25px;
+}
+
+.btn-success {
+  background-color: #198754;
+  border-color: #198754;
+}
+
+.btn-success:hover {
+  background-color: #157347;
+}
+
+/* 🌟 Cart Summary */
+.d-flex {
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+h4 {
+  font-weight: 600;
+  color: #198754;
+  margin: 0 10px;
+}
+
+/* 🌟 Empty Cart Message */
+.alert-info {
+  background-color: #e9f5ff;
+  color: #0d6efd;
+  border: 1px solid #b8daff;
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* 🌟 Login Popup */
+.login-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+}
+
+.popup-content h5 {
+  font-weight: 700;
+  color: #0d6efd;
+  margin-bottom: 15px;
+}
+
+.popup-content p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.popup-content .btn {
+  margin: 5px;
+  width: 45%;
+}
+
+/* 🌟 Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .table th,
+  .table td {
+    font-size: 0.9rem;
+  }
+
+  .table img {
+    width: 50px;
+    height: 50px;
+  }
+
+  input[type="number"] {
+    width: 60px;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  .d-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h4 {
+    margin: 15px 0;
+  }
+
+  .btn-success,
+  .btn-outline-danger {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .table td,
+  .table th {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .popup-content {
+    padding: 20px;
+  }
+
+  .popup-content .btn {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}

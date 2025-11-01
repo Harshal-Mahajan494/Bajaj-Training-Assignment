@@ -1,0 +1,56 @@
+@if (events && events.length>0) {
+<h1>{{title}}</h1>
+<hr>
+<h6>{{subTitle}}</h6>
+@if (childMessage) {
+<p>{{childMessage}}</p>
+}
+<div class="container row">
+    <input type="search" id="inputSearch" class="form-control" placeholder="Search Events By Event Name!"
+        [(ngModel)]="searchChars" (input)="searchEvents()">
+</div>
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            @for (col of columns; track $index) {
+            <th>{{col}}</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @for (event of filteredEvents|paginate:{itemsPerPage:pageSize, currentPage:pageNumber}; track $index) {
+        <tr>
+            <td><span>{{event.eventCode|lowercase}}</span></td>
+            <td><span>{{event.eventName|uppercase}}</span></td>
+            <td><span>{{event.startDate.toString()|dateGlobalization:'hi-IN'}}</span></td>
+            <td><span>{{event.fees|currency:'INR'}}</span></td>
+            <td>
+                <a class="btn btn-dark" [routerLink]="['/events',event.eventId]">Show Details</a>
+            </td>
+            @if(role==="Hr"){
+            <td>
+                <a class="btn btn-danger" [routerLink]="['/events',event.eventId]">Cancel Event</a>
+            </td>
+            }
+        </tr>
+        }
+    </tbody>
+</table>
+<div class="container text-center">
+    <pagination-controls class="my-pagination" (pageChange)="pageNumber=$event"></pagination-controls>
+</div>
+<!-- @if (selectedEventId>0) {
+@defer () {
+<app-event-details [eventId]="selectedEventId" [subTitle]="childSubTitle"
+    (sendConfirmationMessage)="handleChildMessage($event)"></app-event-details>
+}@placeholder(minimum 3000ms) {
+    <h4>Please wait! Your contents are getting prepared!</h4>
+}
+@error {
+    <h4>Something went wrong!</h4>
+}
+} -->
+
+}@else {
+<h4>Sorry! We did not find any event! Please try after some time!</h4>
+}

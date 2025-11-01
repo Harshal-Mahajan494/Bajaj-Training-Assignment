@@ -1,0 +1,42 @@
+.navbar .container-fluid {
+  background-color: brown;
+  
+}
+/* Style only for mobile view */
+@media (max-width: 768px) {
+  /* Target Bootstrap offcanvas */
+  .offcanvas.offcanvas-end {
+    width: 40% !important; /* Show only 30% of the screen */
+    background-color: brown !important; /* Set background to brown */
+    color: white; /* Optional - make text readable */
+  }
+
+  /* Optional - make close button visible on brown background */
+  .offcanvas-header .btn-close {
+    filter: invert(1); /* Makes close (×) button white */
+  }
+
+  /* Optional - style nav links */
+  .offcanvas-body .nav-link {
+    color: white !important;
+  }
+
+  .offcanvas-body .nav-link:hover {
+    background-color: #a0522d; /* Slightly darker brown on hover */
+    border-radius: 5px;
+  }
+
+  /* Optional: adjust dropdown background */
+  .offcanvas-body .dropdown-menu {
+    background-color: brown !important;
+  }
+
+  .offcanvas-body .dropdown-item {
+    color: white !important;
+  }
+
+  .offcanvas-body .dropdown-item:hover {
+    background-color: #a0522d !important;
+  }
+}
+

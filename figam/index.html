@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="styles/finalDashBoard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo"><i class="fa-solid fa-house"></i></div>
+      <ul>
+        <li><i class="fa-solid fa-circle-info"></i></li>
+        <li><i class="fa-solid fa-gear"></i></li>
+        <li><i class="fa-solid fa-right-from-bracket"></i></li>
+      </ul>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+
+      <!-- Header -->
+      <header class="header">
+        <div class="greeting">
+          <h2>Hello Harshal !</h2>
+          <p>Here is your daily statistic</p>
+        </div>
+        <div class="header-right">
+          <div class="date"><i class="fa-regular fa-calendar"></i> 29 May 2020</div>
+          <div class="icons">
+            <i class="fa-regular fa-bell"></i>
+            <i class="fa-regular fa-comment"></i>
+            <img src="./Images/profile.png" alt="profile">
+          </div>
+        </div>
+      </header>
+
+      <!-- Top Stats -->
+      <section class="top-stats">
+        <div class="card">
+          <h3>Total order</h3>
+          <h2>10</h2>
+          <button>More info <i class="fa-solid fa-angle-down"></i></button>
+        </div>
+        <div class="card">
+          <h3>Total earning (after taxes)</h3>
+          <h2>$91.73</h2>
+          <button>More info <i class="fa-solid fa-angle-down"></i></button>
+        </div>
+        <div class="card">
+          <h3>Restaurants</h3>
+          <h2>3</h2>
+          <button>More info <i class="fa-solid fa-angle-down"></i></button>
+        </div>
+        <div class="card">
+          <h3>Total clients</h3>
+          <h2>2</h2>
+          <button>More info <i class="fa-solid fa-angle-down"></i></button>
+        </div>
+      </section>
+
+      <!-- Charts -->
+      <section class="charts">
+        <div class="chart-card">
+          <h3>Most Popular Days</h3>
+          <div class="donut"></div>
+          <ul class="legend">
+            <li><span class="dot red"></span>Sun</li>
+            <li><span class="dot orange"></span>Mon</li>
+            <li><span class="dot blue"></span>Wed</li>
+            <li><span class="dot green"></span>Thu</li>
+          </ul>
+        </div>
+
+        <div class="chart-card">
+          <h3>Most Popular Time</h3>
+          <div class="bar-chart">
+            <div class="bar" style="height:80%"></div>
+            <div class="bar" style="height:60%"></div>
+            <div class="bar" style="height:90%"></div>
+            <div class="bar" style="height:40%"></div>
+            <div class="bar" style="height:30%"></div>
+          </div>
+          <div class="times">
+            <span>4 PM</span><span>5 PM</span><span>8 PM</span><span>9 PM</span><span>1 PM</span>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <h3>Average Advance Order Time</h3>
+          <div class="clock">
+            <i class="fa-regular fa-clock"></i>
+          </div>
+          <h2>26922 minutes</h2>
+        </div>
+      </section>
+
+      <!-- Bottom section -->
+      <section class="bottom">
+        <div class="table-card">
+          <h3>Most Loyal Customer</h3>
+          <table>
+            <tr><th>Profile</th><th>Name</th><th>Profession</th><th>Order</th><th>Rating</th></tr>
+            <tr>
+              <td><img src="images/profile.png" alt=""></td>
+              <td>Seyi E.</td><td>Doctor</td><td>7</td><td>⭐ 5 star</td>
+            </tr>
+            <tr>
+              <td><img src="images/profile.png" alt=""></td>
+              <td>Rosalba</td><td>Teacher</td><td>5</td><td>⭐ 5 star</td>
+            </tr>
+            <tr>
+              <td><img src="images/profile.png" alt=""></td>
+              <td>Prather</td><td>Doctor</td><td>4</td><td>⭐ 4 star</td>
+            </tr>
+          </table>
+          <p class="see-more">See more <i class="fa-solid fa-angle-right"></i></p>
+        </div>
+
+        <div class="chart-card">
+          <h3>Most Popular Food</h3>
+          <div class="donut donut-blue">
+            <span class="center-text">Pizza</span>
+          </div>
+          <ul class="legend">
+            <li><span class="dot blue"></span>Montanara</li>
+            <li><span class="dot red"></span>Carbonara</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

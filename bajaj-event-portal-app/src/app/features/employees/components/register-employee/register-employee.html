@@ -1,0 +1,196 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+  <hr />
+  <form
+    (ngSubmit)="onEmployeeSubmit()"
+    [formGroup]="register.employeeForm"
+    #employeeForm="ngForm"
+  >
+    <fieldset>
+      <div class="form-group">
+        <label for="inputEmployeeId" class="form-label mt-4"
+          >Employee Id</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          id="inputEmployeeId"
+          placeholder="Please enter employee Id!"
+          name="employeeId"
+          formControlName="employeeId"
+        />
+        @if (register.employeeForm.controls['employeeId'].errors?.['required']) {
+        <div class="alert alert-danger">Employee Id is a required field!</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="inputEmployeeCode" class="form-label mt-4"
+          >Employee Code</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="inputEmployeeCode"
+          placeholder="Please enter employee code!"
+          name="employeeCode"
+          formControlName="employeeCode"
+        />
+        @if (register.employeeForm.controls['employeeCode'].errors?.['required'])
+        {
+        <div class="alert alert-danger">Employee Code is a required field!</div>
+        } @else if
+        (register.employeeForm.controls['employeeCode'].errors?.['minlength']) {
+        <div class="alert alert-danger">
+          Employee Code must be minimum 4 characters long!
+        </div>
+        } @else if
+        (register.employeeForm.controls['employeeCode'].errors?.['maxlength']) {
+        <div class="alert alert-danger">
+          Employee Code must be maximum 10 characters long!
+        </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="inputFirstName" class="form-label mt-4">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputFirstName"
+          placeholder="Please enter first name!"
+          name="firstName"
+          formControlName="firstName"
+        />
+        @if (register.employeeForm.controls['firstName'].errors?.['required']) {
+        <div class="alert alert-danger">First Name is a required field!</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="inputLastName" class="form-label mt-4">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputLastName"
+          placeholder="Please enter last name!"
+          name="lastName"
+          formControlName="lastName"
+        />
+        @if (register.employeeForm.controls['lastName'].errors?.['required']) {
+        <div class="alert alert-danger">Last Name is a required field!</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="inputEmail" class="form-label mt-4">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="inputEmail"
+          placeholder="Please enter email!"
+          name="email"
+          formControlName="email"
+        />
+        @if (register.employeeForm.controls['email'].errors?.['required']) {
+        <div class="alert alert-danger">Email is a required field!</div>
+        } @else if (register.employeeForm.controls['email'].errors?.['email']) {
+        <div class="alert alert-danger">Please enter a valid email!</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="inputPhone" class="form-label mt-4">Phone</label>
+        <input
+          type="tel"
+          class="form-control"
+          id="inputPhone"
+          placeholder="Please enter phone number!"
+          name="phone"
+          formControlName="phone"
+        />
+        @if (register.employeeForm.controls['phone'].errors?.['required']) {
+        <div class="alert alert-danger">Phone is a required field!</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="inputDesignation" class="form-label mt-4"
+          >Designation</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="inputDesignation"
+          placeholder="Please enter designation!"
+          name="designation"
+          formControlName="designation"
+        />
+        @if (register.employeeForm.controls['designation'].errors?.['required'])
+        {
+        <div class="alert alert-danger">Designation is a required field!</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="inputDepartment" class="form-label mt-4">Department</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputDepartment"
+          placeholder="Please enter department!"
+          name="department"
+          formControlName="department"
+        />
+        @if (register.employeeForm.controls['department'].errors?.['required']) {
+        <div class="alert alert-danger">Department is a required field!</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="inputJoiningDate" class="form-label mt-4"
+          >Joining Date</label
+        >
+        <input
+          type="date"
+          class="form-control"
+          id="inputJoiningDate"
+          name="joiningDate"
+          formControlName="joiningDate"
+        />
+        @if (register.employeeForm.controls['joiningDate'].errors?.['required'])
+        {
+        <div class="alert alert-danger">Joining Date is a required field!</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="inputProfilePicture" class="form-label mt-4"
+          >Profile Picture URL</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="inputProfilePicture"
+          placeholder="Please enter URL for profile picture!"
+          name="profilePicture"
+          formControlName="profilePicture"
+        />
+        @if
+        (register.employeeForm.controls['profilePicture'].errors?.['required']) {
+        <div class="alert alert-danger">
+          Profile Picture URL is a required field!
+        </div>
+        }
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-dark mt-4"
+        [disabled]="!employeeForm.valid"
+      >
+        Register Employee
+      </button>
+    </fieldset>
+  </form>
+</div>

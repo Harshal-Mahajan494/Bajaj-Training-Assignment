@@ -1,0 +1,70 @@
+<!-- ✅ Product Grid -->
+<div *ngIf="product && product.data.length > 0; else noProducts" class="container text-center">
+  <h1>{{title || 'All Products'}}</h1>
+
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-3" *ngFor="let p of product.data; trackBy: trackById">
+      <div class="card shadow-lg m-3 bg-body-tertiary rounded" style="width: 100%;">
+        <img [src]="p.images[0]" class="card-img-top" [alt]="p.name" height="250">
+        <div class="card-body">
+          <h5 class="card-title">{{p.name}}</h5>
+          <p class="card-text">{{p.description}}</p>
+          <hr>
+          <div class="text-center">
+            <a class="btn btn-success me-2" (click)="onProductSelection(p)">Show Details</a>
+            <a class="btn btn-dark" (click)="addToCart(p)">Add To Cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ PAGINATION SECTION -->
+  <nav *ngIf="totalPages > 1" class="mt-4 d-flex justify-content-center">
+    <ul class="pagination pagination-lg">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" (click)="goToPage(currentPage - 1)">Previous</a>
+      </li>
+
+      <!-- Dynamic page numbers -->
+      <li class="page-item"
+          *ngFor="let page of [].constructor(totalPages); let i = index"
+          [class.active]="(i + 1) === currentPage">
+        <a class="page-link" (click)="goToPage(i + 1)">{{ i + 1 }}</a>
+      </li>
+
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <a class="page-link" (click)="goToPage(currentPage + 1)">Next</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ✅ Product Modal -->
+  <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{selectedProduct?.name}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" *ngIf="selectedProduct">
+          <img [src]="selectedProduct?.images[0]" class="img-fluid mb-3">
+          <p><strong>Description:</strong> {{selectedProduct?.description}}</p>
+          <p><strong>Price:</strong> {{selectedProduct?.price | currency}}</p>
+          <p><strong>Brand:</strong> {{selectedProduct?.brand}}</p>
+          <p><strong>Stock:</strong> {{selectedProduct?.stock}}</p>
+          <p><strong>Rating:</strong> {{selectedProduct?.rating}}</p>
+          <p><strong>Category:</strong> {{selectedProduct?.categoryId?.name}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" (click)="addToCart(selectedProduct)">Add To Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noProducts>
+  <h4>No products available right now!</h4>
+</ng-template>

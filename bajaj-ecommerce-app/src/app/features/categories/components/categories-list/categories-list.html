@@ -1,0 +1,101 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Categories</h2>
+
+  <!-- Categories List -->
+  <div class="row">
+    <div
+      class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
+      *ngFor="let c of categories"
+    >
+      <div class="card shadow-sm text-center category-card">
+        <img
+          [src]="c.image"
+          class="card-img-top"
+          [alt]="c.name"
+          height="180"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ c.name }}</h5>
+          <button
+            class="btn btn-primary btn-sm"
+            (click)="showProducts(c._id, c.name)"
+            data-bs-toggle="modal"
+            data-bs-target="#productsModal"
+          >
+            View Products
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="loading" class="text-center my-4">
+    <div class="spinner-border text-primary" role="status"></div>
+    <p class="mt-2">Loading products...</p>
+  </div>
+
+  <!-- Modal for Products -->
+  <div
+    class="modal fade"
+    id="productsModal"
+    tabindex="-1"
+    aria-labelledby="productsModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-white">
+          <h4 class="modal-title" id="productsModalLabel">
+            Products in {{ selectedCategoryName }}
+          </h4>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <div class="modal-body">
+          <div *ngIf="loading" class="text-center my-5">
+            <div class="spinner-border text-primary" role="status"></div>
+            <p class="mt-3">Loading products...</p>
+          </div>
+
+          <div *ngIf="!loading && products.length > 0; else noProducts">
+            <div class="row">
+              <div
+                class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
+                *ngFor="let p of products"
+              >
+                <div class="card h-100 shadow-sm product-card">
+                  <img
+                    [src]="p.images[0]"
+                    class="card-img-top"
+                    [alt]="p.name"
+                    height="200"
+                  />
+                  <div class="card-body text-center">
+                    <h5 class="card-title">{{ p.name }}</h5>
+                    <p class="text-muted">{{ p.brand }}</p>
+                    <p><strong>₹{{ p.price }}</strong></p>
+                    <p class="text-secondary small mb-0">
+                      ⭐ {{ p.rating.toFixed(1) }} ({{ p.numReviews }} reviews)
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ng-template #noProducts>
+            <div class="text-center mt-5">
+              <p class="text-muted">No products found for this category.</p>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+@if (employee) {
+<h1>{{ title + employee.firstName + ' ' + employee.lastName }}</h1>
+<hr />
+
+<div class="row">
+  <div class="col-md-4">
+    <img
+      [src]="employee.profilePicture"
+      [alt]="employee.firstName"
+      class="img-fluid rounded-circle"
+    />
+  </div>
+  <div class="col-md-8">
+    <table class="table table-hover table-striped">
+      <tbody>
+        <tr>
+          <th>Employee Id</th>
+          <td>
+            <span>{{ employee.employeeId }}</span>
+          </td>
+        </tr>
+        <tr>
+          <th>Employee Code</th>
+          <td>
+            <span>{{ employee.employeeCode | uppercase }}</span>
+          </td>
+        </tr>
+        <tr>
+          <th>Full Name</th>
+          <td>
+            <span>{{ employee.firstName }} {{ employee.lastName }}</span>
+          </td>
+        </tr>
+        <tr>
+          <th>Email Address</th>
+          <td>
+            <span>{{ employee.email | lowercase }}</span>
+          </td>
+        </tr>
+        <tr>
+          <th>Phone Number</th>
+          <td>
+            <span>{{ employee.phone }}</span>
+          </td>
+        </tr>
+        <tr>
+          <th>Department</th>
+          <td>
+            <span>{{ employee.department }}</span>
+          </td>
+        </tr>
+        <tr>
+          <th>Designation</th>
+          <td>
+            <span>{{ employee.designation }}</span>
+          </td>
+        </tr>
+        <tr>
+          <th>Joining Date</th>
+          <td>
+            <span>{{ employee.joiningDate | date : 'dd/MMM/yyyy' }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+} @else {
+<h4>We did not find the employee which you are looking for!</h4>
+}

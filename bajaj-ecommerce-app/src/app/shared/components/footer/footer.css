@@ -1,0 +1,39 @@
+* Footer */
+.footer {
+  background-color: #131a22;
+  color: white;
+  padding: 30px 20px;
+  font-size: 14px;
+  margin-top: 50px;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.footer-top div {
+  width: 200px;
+  margin: 10px 0;
+}
+.footer-top h5 {
+  font-weight: bold;
+}
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+  font-size: 12px;
+}
+.footer {
+  background-color: #131a22;
+  color: white;
+  padding: 30px 20px;
+  font-size: 14px;
+  margin-top: 50px;
+
+    /* Fix it to the viewport */
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
